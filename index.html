@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Salin Nomor</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .copy-box {
+    text-align: center;
+  }
+
+  .number {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #000;
+    color: #fff;
+  }
+
+  button:hover {
+    opacity: 0.85;
+  }
+
+  .success {
+    margin-top: 10px;
+    color: green;
+    font-size: 13px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="copy-box">
+  <div class="number" id="textToCopy">116501037155508</div>
+  <button onclick="copyText()">Salin</button>
+  <div class="success" id="successMessage">Sudah berhasil</div>
+</div>
+
+<script>
+function copyText() {
+  const text = document.getElementById("textToCopy").innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const msg = document.getElementById("successMessage");
+    msg.style.display = "block";
+
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
